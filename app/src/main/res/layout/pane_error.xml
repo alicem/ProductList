@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/errorPane"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:layout_margin="16dp"
+    android:padding="8dp"
+    android:background="#77000000"
+    android:orientation="horizontal"
+    android:visibility="gone"
+    >
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1.0"
+        android:textColor="@android:color/white"
+        android:layout_height="wrap_content"
+        android:text="AN ERROR OCCURED"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium.Inverse"
+        android:layout_margin="8dp"
+        android:layout_gravity="center_vertical"
+        />
+
+    <Button
+        android:id="@+id/retryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="TRY AGAIN"
+        android:layout_gravity="center_vertical"
+        />
+</LinearLayout>
