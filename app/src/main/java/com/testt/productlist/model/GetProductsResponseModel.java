@@ -3,6 +3,7 @@ package com.testt.productlist.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -40,12 +41,8 @@ public class GetProductsResponseModel implements Parcelable {
     }
 
     public GetProductsResponseModel(Parcel in) {
-        final ProductModel[] array = (ProductModel[]) in.readParcelableArray(ProductModel.class.getClassLoader());
-        if (array == null) {
-            products = null;
-        } else {
-            products = Arrays.asList(array);
-        }
+        products = new ArrayList<>();
+        in.readTypedList(products, ProductModel.CREATOR);
     }
 
     @Override
@@ -55,13 +52,7 @@ public class GetProductsResponseModel implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        Parcelable[] array;
-        if (products == null) {
-            array = null;
-        } else {
-            array = products.toArray(new Parcelable[products.size()]);
-        }
-        dest.writeParcelableArray(array, flags);
+        dest.writeTypedList(products);
     }
 
 }
